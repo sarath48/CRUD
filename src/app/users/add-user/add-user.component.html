@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-title class="new">Create new user</mat-card-title>
+<form [formGroup]="addUserForm" (submit)='createUser()'>
+    <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="Eg:-Sarath" formControlName="username">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+     <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Eg:-xyz@toho.com" formControlName="email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Eg:-348271123" formControlName="phone">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+      </mat-form-field>
+<br>
+     
+      <button mat-raised-button color="primary">CreateUser</button>
+</form>
+
+</mat-card>
+
+
