@@ -1,1 +1,20 @@
-<p>edit-user works!</p>
+<mat-card>
+    <mat-card-title class="new" *ngIf="userDetails">User Details of {{userDetails.name}}</mat-card-title>
+  <div *ngIf="dataAvailable">  
+<form [formGroup]="editUserForm" (submit)='updateUser()'>
+    <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="Eg:-Sarath" formControlName="name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+     <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Eg:-xyz@toho.com" formControlName="email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>     
+      <br>
+      <button mat-raised-button color="primary">Update</button>
+</form>
+</div>
+</mat-card>
