@@ -5,18 +5,39 @@
         <mat-label>User Name</mat-label>
         <input matInput placeholder="Eg:-Sarath" formControlName="username">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['username'].errors&&addUserForm.controls['username'].hasError('required')">
+          User Name is Required Eg-Sarath
+        </mat-error>
+        <mat-error *ngIf="addUserForm.controls['username'].errors&&addUserForm.controls['username'].hasError('minlength')">
+          Minimum of 3 characters
+        </mat-error>
+        <mat-error *ngIf="addUserForm.controls['username'].errors&&addUserForm.controls['username'].hasError('maxlength')">
+         Maximum of 10 characters
+        </mat-error>
       </mat-form-field>
      <br>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Eg:-xyz@toho.com" formControlName="email">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['email'].errors&&addUserForm.controls['email'].hasError('required')">
+          Email Address is Required Eg-xyz@mphasis.com
+        </mat-error>
+        <mat-error *ngIf="addUserForm.controls['email'].errors&&addUserForm.controls['email'].hasError('email')">
+          Email Address format is incorrect
+        </mat-error>
       </mat-form-field>
     <br>
       <mat-form-field appearance="outline">
         <mat-label>Phone Number</mat-label>
         <input matInput placeholder="Eg:-348271123" formControlName="phone">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['phone'].errors&&addUserForm.controls['phone'].hasError('required')">
+         Phone number is Required Eg-12343212
+        </mat-error>
+        <mat-error *ngIf="addUserForm.controls['phone'].errors&&addUserForm.controls['phone'].hasError('maxlength')">
+          It should contain only 10 digits Eg-1233412334
+        </mat-error>
 
       </mat-form-field>
 <br>

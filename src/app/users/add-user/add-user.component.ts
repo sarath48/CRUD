@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,9 +14,9 @@ export class AddUserComponent implements OnInit {
   addUserForm:FormGroup = new FormGroup({});
   ngOnInit(): void {
     this.addUserForm=this.formBuilder.group({
-      'username':new FormControl(''),
-      'email':new FormControl(''),
-      'phone':new FormControl('')
+      'username':new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
+      'email':new FormControl('',[Validators.required,Validators.email]),
+      'phone':new FormControl('',[Validators.required,Validators.maxLength(10)])
     })
   }
   userCreated:any;

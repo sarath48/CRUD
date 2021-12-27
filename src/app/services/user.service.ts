@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../users/view-users/view-users.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class UserService {
 
   baseURL:string='https://jsonplaceholder.typicode.com/';
 
-  listUsers(){
-    return this.httpClient.get(this.baseURL+'users');
+  listUsers():Observable<User[]>{
+    return this.httpClient.get<User[]>(this.baseURL+'users');
   }
 
   listUser(id:any)
